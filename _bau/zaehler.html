@@ -1,0 +1,29 @@
+<!-- Zähler ohne Cookies: nur Tagessummen je Seite, siehe Datenschutz -->
+<script>
+(function(){
+  if (!navigator.sendBeacon || navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+  var E = '/z/e', p = location.pathname, vis = 0, seit = document.visibilityState === 'visible' ? Date.now() : 0, tief = 0, fertig = false, schon = {};
+  function senden(o) { o.p = p; try { navigator.sendBeacon(E, JSON.stringify(o)); } catch (e) {} }
+  function tiefe() { var h = document.documentElement, m = h.scrollHeight - h.clientHeight, y = window.pageYOffset || h.scrollTop || 0; var v = m > 0 ? Math.round((y + 1) / m * 100) : 100; if (v > tief) tief = v; }
+  function zeit() { if (seit) { vis += Date.now() - seit; seit = 0; } }
+  function ende() { zeit(); if (fertig) return; fertig = true; tiefe(); senden({ k: 'v', t: vis / 1000, s: tief, m: window.matchMedia('(max-width: 700px)').matches ? 1 : 0 }); }
+  function ereignis(art, text) { var k = art + '|' + text; if (schon[k]) return; schon[k] = 1; senden({ k: 'e', e: art, l: String(text || '').replace(/\s+/g, ' ').trim().slice(0, 60) }); }
+  window.addEventListener('scroll', tiefe, { passive: true });
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'hidden') ende(); else if (!seit) seit = Date.now(); });
+  window.addEventListener('pagehide', ende);
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a, button, summary, [data-z]'); if (!a) return;
+    var h = a.getAttribute('href') || '', t = a.getAttribute('data-z') || a.getAttribute('aria-label') || a.textContent || '';
+    if (a.tagName === 'SUMMARY') return ereignis('Aufgeklappt', t);
+    if (/^mailto:/i.test(h) || /email-protection/.test(h)) return ereignis('E-Mail', t);
+    if (/^tel:/i.test(h)) return ereignis('Telefon', t);
+    if (/wa\.me|whatsapp/i.test(h)) return ereignis('WhatsApp', t);
+    if (/cal\.(eu|com)/i.test(h)) return ereignis('Termin', t);
+    if (/^https?:/i.test(h) && a.hostname && a.hostname.replace(/^www\./, '') !== location.hostname.replace(/^www\./, '')) return ereignis('Externer Link', a.hostname.replace(/^www\./, ''));
+    if (a.tagName === 'BUTTON' || /\bbtn\b/.test(a.className) || a.hasAttribute('data-z')) return ereignis('Schaltfläche', t);
+  }, true);
+  document.addEventListener('submit', function (e) { ereignis('Formular', e.target.getAttribute('aria-label') || e.target.id || 'Formular'); }, true);
+  Array.prototype.forEach.call(document.querySelectorAll('video'), function (v) { v.addEventListener('play', function () { ereignis('Video', v.id || 'Video'); }, { once: true }); });
+  var r = document.getElementById('rechner'); if (r) r.addEventListener('input', function () { ereignis('Rechner', 'Werte geändert'); }, { once: true });
+})();
+</script>

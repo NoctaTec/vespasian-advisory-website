@@ -370,6 +370,7 @@ h1 em,h2 em{font-style:italic}
 .num,.year{font-family:"Caslon Display",Georgia,serif!important;letter-spacing:.04em;white-space:nowrap}
 .num{font-size:clamp(3.6rem,7vw,6.4rem)!important;line-height:1!important}
 .creds .cl{display:block;font-style:normal}.creds .cl+.cl{margin-top:.35rem}
+.fields li .more-link{grid-column:-2/-1;justify-self:start}.fields li div .more-link{margin:.8rem 0 0 1.6rem;font-size:.92rem;color:var(--text)}.more-link{display:inline-flex;gap:.45rem;margin-top:.6rem;font-size:.95rem;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:.1rem}.more-link span{transition:transform .4s var(--ease)}.more-link:hover span{transform:translateX(.25rem)}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -386,6 +387,7 @@ h1 em,h2 em{font-style:italic}
         <li><a href="#ablauf">Ablauf</a></li>
         <li><a href="#ueber-uns">Über uns</a></li>
         <li><a href="#fragen">Fragen</a></li>
+        <li><a href="/honorar/">Honorar</a></li>
       </ul>
       <a class="cta" href="#kontakt" data-anlass="">Erstgespräch</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen"><i aria-hidden="true"></i></button>
@@ -401,6 +403,7 @@ h1 em,h2 em{font-style:italic}
       <li><a href="#ablauf">Ablauf</a></li>
       <li><a href="#ueber-uns">Über uns</a></li>
       <li><a href="#fragen">Fragen</a></li>
+      <li><a href="/honorar/">Honorar</a></li>
       <li><a href="#kontakt">Erstgespräch</a></li>
     </ul>
     <p><a href="tel:+4915202665878">+49 152 0266 5878</a><br><a href="mailto:kontakt@vespasian-advisory.de">kontakt@vespasian-advisory.de</a></p>
@@ -469,10 +472,10 @@ h1 em,h2 em{font-style:italic}
       <div class="group split">
         <div><p class="eyebrow rv">01</p><h2 class="gtitle rv">Unternehmen</h2><p class="gnote rv d1">Für Kauf, Verkauf, Nachfolge und Wachstum.</p></div>
         <ul class="fields">
-          <li class="rv"><h3>Unternehmens&shy;bewertung</h3><p>Für Kauf, Verkauf, Nachfolge und den Ein- oder Austritt von Gesellschaftern. Vom schnellen Werteindruck bis zum ausführlichen Bewertungsgutachten.</p></li>
-          <li class="rv d1"><h3>Kaufpreis-Check und Due Diligence</h3><p>Eine zweite Meinung, bevor Sie unterschreiben. Wir prüfen Verkäuferbewertung, Zahlen, Planannahmen und Risiken und zeigen, wo der Preis wackelt.</p></li>
-          <li class="rv d2"><h3>Nachfolge und Verkauf</h3><p>Wir bereiten Ihr Unternehmen auf die Übergabe vor, mit belastbarer Wertbasis, geordneten Unterlagen, Exposé und dem Blick eines Käufers.</p></li>
-          <li class="rv d3"><h3>Finanzierung und Planung</h3><p>Businessplan, Liquiditäts- und Kapitaldienstplanung sowie Unterlagen, mit denen Sie gut vorbereitet ins Bankgespräch gehen.</p></li>
+          <li class="rv"><h3>Unternehmens&shy;bewertung</h3><p>Für Kauf, Verkauf, Nachfolge und den Ein- oder Austritt von Gesellschaftern. Vom schnellen Werteindruck bis zum ausführlichen Bewertungsgutachten.</p><a class="more-link" href="/leistungen/unternehmensbewertung/">Mehr erfahren <span aria-hidden="true">→</span></a></li>
+          <li class="rv d1"><h3>Kaufpreis-Check und Due Diligence</h3><p>Eine zweite Meinung, bevor Sie unterschreiben. Wir prüfen Verkäuferbewertung, Zahlen, Planannahmen und Risiken und zeigen, wo der Preis wackelt.</p><a class="more-link" href="/leistungen/kaufpreis-check/">Mehr erfahren <span aria-hidden="true">→</span></a></li>
+          <li class="rv d2"><h3>Nachfolge und Verkauf</h3><p>Wir bereiten Ihr Unternehmen auf die Übergabe vor, mit belastbarer Wertbasis, geordneten Unterlagen, Exposé und dem Blick eines Käufers.</p><a class="more-link" href="/leistungen/nachfolge-und-verkauf/">Mehr erfahren <span aria-hidden="true">→</span></a></li>
+          <li class="rv d3"><h3>Finanzierung und Planung</h3><p>Businessplan, Liquiditäts- und Kapitaldienstplanung sowie Unterlagen, mit denen Sie gut vorbereitet ins Bankgespräch gehen.</p><a class="more-link" href="/leistungen/finanzierung-und-bankgespraech/">Mehr erfahren <span aria-hidden="true">→</span></a></li>
           <li class="rv"><h3>Controlling und Reporting</h3><p>Monatszahlen, die Sie verstehen. Mit Kennzahlen, interaktive Dashboards und schlanke, automatisierte Prozesse, damit Sie früh sehen, wohin sich Ihr Unternehmen bewegt.</p></li>
         </ul>
       </div>
@@ -480,8 +483,8 @@ h1 em,h2 em{font-style:italic}
       <div class="group split">
         <div><p class="eyebrow rv">02</p><h2 class="gtitle rv">Familie und Vermögen</h2><p class="gnote rv d1">Wenn es um Erbe, Trennung oder die eigene Zukunft geht.</p></div>
         <ul class="fields">
-          <li class="rv"><h3>Erbschaft und Erbengemeinschaft</h3><p>Was ist der Nachlass wert, wer übernimmt was und wie lässt sich eine Auszahlung finanzieren? Wir rechnen die Varianten durch und schaffen eine gemeinsame Zahlengrundlage. Die rechtliche Gestaltung übernehmen Anwalt oder Notar.</p></li>
-          <li class="rv d1"><h3>Scheidung und Pflichtteil</h3><p>Unternehmens- und Immobilienwerte für Zugewinnausgleich und Pflichtteilsansprüche, nachvollziehbar dokumentiert für alle Beteiligten.</p></li>
+          <li class="rv"><h3>Erbschaft und Erbengemeinschaft</h3><p>Was ist der Nachlass wert, wer übernimmt was und wie lässt sich eine Auszahlung finanzieren? Wir rechnen die Varianten durch und schaffen eine gemeinsame Zahlengrundlage. Die rechtliche Gestaltung übernehmen Anwalt oder Notar.</p><a class="more-link" href="/leistungen/erbschaft-und-erbengemeinschaft/">Mehr erfahren <span aria-hidden="true">→</span></a></li>
+          <li class="rv d1"><h3>Scheidung und Pflichtteil</h3><p>Unternehmens- und Immobilienwerte für Zugewinnausgleich und Pflichtteilsansprüche, nachvollziehbar dokumentiert für alle Beteiligten.</p><a class="more-link" href="/leistungen/scheidung-und-pflichtteil/">Mehr erfahren <span aria-hidden="true">→</span></a></li>
           <li class="rv d2"><h3>Persönliche Finanzplanung</h3><p>Vermögensübersicht, Liquiditäts- und Ruhestandsplanung für Unternehmer und Familien. Sie sehen, wo Sie stehen und was Ihre Entscheidungen bewirken, ohne Produktverkauf.</p></li>
         </ul>
       </div>
@@ -599,7 +602,7 @@ h1 em,h2 em{font-style:italic}
       <div class="faq rv d1">
         <details>
           <summary>Was kostet eine Bewertung oder Beratung?</summary>
-          <div class="ans"><p>Das hängt vom Anlass, der Größe und der Qualität der Unterlagen ab. Nach dem kostenlosen Erstgespräch erhalten Sie ein schriftliches Angebot mit Umfang und Honorar.</p></div>
+          <div class="ans"><p>Das hängt vom Anlass, der Größe und der Qualität der Unterlagen ab. Nach dem kostenlosen Erstgespräch erhalten Sie ein schriftliches Angebot mit Umfang und Honorar. Typische Honorare finden Sie <a href="/honorar/">hier</a>, ein <a href="/beispiel/">Beispielbericht</a> zeigt, was Sie bekommen.</p></div>
         </details>
         <details>
           <summary>Müssen Sie dafür vor Ort sein?</summary>
@@ -788,7 +791,7 @@ h1 em,h2 em{font-style:italic}
     var h=li.querySelector("h3").textContent.replace(/\u00ad/g,""), p=li.querySelector("p"), key=Object.keys(MAP).find(function(k){return h.indexOf(k)===0});
     if(!key||!p) return;
     var a=document.createElement("a"); a.className="ask"; a.href="#kontakt"; a.setAttribute("data-anlass",MAP[key]); a.innerHTML='Anfragen <i aria-hidden="true">→</i>';
-    var box=document.createElement("div"); p.parentNode.insertBefore(box,p); box.appendChild(p); box.appendChild(a);
+    var box=document.createElement("div"); p.parentNode.insertBefore(box,p); box.appendChild(p); box.appendChild(a); var m=box.nextElementSibling; if(m&&m.classList.contains("more-link")) box.appendChild(m);
   });
   document.addEventListener("click",function(e){
     var a=e.target.closest("[data-anlass]"); if(!a) return;
