@@ -2,8 +2,8 @@
 <script>
 (function(){
   if (!navigator.sendBeacon || navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
-  var E = '/z/e', p = location.pathname, vis = 0, seit = document.visibilityState === 'visible' ? Date.now() : 0, tief = 0, fertig = false, schon = {};
-  function senden(o) { o.p = p; try { navigator.sendBeacon(E, JSON.stringify(o)); } catch (e) {} }
+  var E = '/z/e', p = location.pathname, c = decodeURIComponent((location.search.match(/[?&]utm_campaign=([^&#]*)/) || [])[1] || ''), vis = 0, seit = document.visibilityState === 'visible' ? Date.now() : 0, tief = 0, fertig = false, schon = {};
+  function senden(o) { o.p = p; if (c) o.c = c; try { navigator.sendBeacon(E, JSON.stringify(o)); } catch (e) {} }
   function tiefe() { var h = document.documentElement, m = h.scrollHeight - h.clientHeight, y = window.pageYOffset || h.scrollTop || 0; var v = m > 0 ? Math.round((y + 1) / m * 100) : 100; if (v > tief) tief = v; }
   function zeit() { if (seit) { vis += Date.now() - seit; seit = 0; } }
   function ende() { zeit(); if (fertig) return; fertig = true; tiefe(); senden({ k: 'v', t: vis / 1000, s: tief, m: window.matchMedia('(max-width: 700px)').matches ? 1 : 0 }); }
