@@ -543,3 +543,7 @@ URLS.append(seite(
 ))
 
 print("\n".join(URLS))
+
+# SEO-Pflege: lastmod in sitemap.xml, llms.txt, robots.txt (Regel im Hub, seit 27.11.2026)
+import subprocess, sys
+subprocess.run([sys.executable, os.path.join(ROOT, "_bau", "seo_pflege.py")], cwd=ROOT, check=False)
